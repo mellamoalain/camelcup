@@ -33,6 +33,7 @@ namespace CamelUp.Modelo
         public static Camello getCamello(int id)
         {
             List<Camello> l = getCamellos();
+            //Linq
             return l.FirstOrDefault(s => s.Id == id);
         }
 
