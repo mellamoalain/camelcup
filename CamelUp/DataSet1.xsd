@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Camello" msprop:Generator_TableClassName="CamelloDataTable" msprop:Generator_TableVarName="tableCamello" msprop:Generator_TablePropName="Camello" msprop:Generator_RowDeletingName="CamelloRowDeleting" msprop:Generator_RowChangingName="CamelloRowChanging" msprop:Generator_RowEvHandlerName="CamelloRowChangeEventHandler" msprop:Generator_RowDeletedName="CamelloRowDeleted" msprop:Generator_UserTableName="Camello" msprop:Generator_RowChangedName="CamelloRowChanged" msprop:Generator_RowEvArgName="CamelloRowChangeEvent" msprop:Generator_RowClassName="CamelloRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:string" />
+              <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color" type="xs:string" minOccurs="0" />
+              <xs:element name="Casilla" msprop:Generator_ColumnVarNameInTable="columnCasilla" msprop:Generator_ColumnPropNameInRow="Casilla" msprop:Generator_ColumnPropNameInTable="CasillaColumn" msprop:Generator_UserColumnName="Casilla" type="xs:string" minOccurs="0" />
+              <xs:element name="AlturaEnCasilla" msprop:Generator_ColumnVarNameInTable="columnAlturaEnCasilla" msprop:Generator_ColumnPropNameInRow="AlturaEnCasilla" msprop:Generator_ColumnPropNameInTable="AlturaEnCasillaColumn" msprop:Generator_UserColumnName="AlturaEnCasilla" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Dados" msprop:Generator_TableClassName="DadosDataTable" msprop:Generator_TableVarName="tableDados" msprop:Generator_TablePropName="Dados" msprop:Generator_RowDeletingName="DadosRowDeleting" msprop:Generator_RowChangingName="DadosRowChanging" msprop:Generator_RowEvHandlerName="DadosRowChangeEventHandler" msprop:Generator_RowDeletedName="DadosRowDeleted" msprop:Generator_UserTableName="Dados" msprop:Generator_RowChangedName="DadosRowChanged" msprop:Generator_RowEvArgName="DadosRowChangeEvent" msprop:Generator_RowClassName="DadosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:string" />
+              <xs:element name="ValorActual" msprop:Generator_ColumnVarNameInTable="columnValorActual" msprop:Generator_ColumnPropNameInRow="ValorActual" msprop:Generator_ColumnPropNameInTable="ValorActualColumn" msprop:Generator_UserColumnName="ValorActual" type="xs:short" default="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Loseta" msprop:Generator_TableClassName="LosetaDataTable" msprop:Generator_TableVarName="tableLoseta" msprop:Generator_TablePropName="Loseta" msprop:Generator_RowDeletingName="LosetaRowDeleting" msprop:Generator_RowChangingName="LosetaRowChanging" msprop:Generator_RowEvHandlerName="LosetaRowChangeEventHandler" msprop:Generator_RowDeletedName="LosetaRowDeleted" msprop:Generator_UserTableName="Loseta" msprop:Generator_RowChangedName="LosetaRowChanged" msprop:Generator_RowEvArgName="LosetaRowChangeEvent" msprop:Generator_RowClassName="LosetaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Fk_jugador" msprop:Generator_ColumnVarNameInTable="columnFk_jugador" msprop:Generator_ColumnPropNameInRow="Fk_jugador" msprop:Generator_ColumnPropNameInTable="Fk_jugadorColumn" msprop:Generator_UserColumnName="Fk_jugador" type="xs:string" minOccurs="0" />
+              <xs:element name="Casilla" msprop:Generator_ColumnVarNameInTable="columnCasilla" msprop:Generator_ColumnPropNameInRow="Casilla" msprop:Generator_ColumnPropNameInTable="CasillaColumn" msprop:Generator_UserColumnName="Casilla" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Jugador" msprop:Generator_TableClassName="JugadorDataTable" msprop:Generator_TableVarName="tableJugador" msprop:Generator_TablePropName="Jugador" msprop:Generator_RowDeletingName="JugadorRowDeleting" msprop:Generator_RowChangingName="JugadorRowChanging" msprop:Generator_RowEvHandlerName="JugadorRowChangeEventHandler" msprop:Generator_RowDeletedName="JugadorRowDeleted" msprop:Generator_UserTableName="Jugador" msprop:Generator_RowChangedName="JugadorRowChanged" msprop:Generator_RowEvArgName="JugadorRowChangeEvent" msprop:Generator_RowClassName="JugadorRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id_jugador" msprop:Generator_ColumnVarNameInTable="columnId_jugador" msprop:Generator_ColumnPropNameInRow="Id_jugador" msprop:Generator_ColumnPropNameInTable="Id_jugadorColumn" msprop:Generator_UserColumnName="Id_jugador" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Camello" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="Dados_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Dados" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="Camello_Dados" msdata:parent="Camello" msdata:child="Dados" msdata:parentkey="Id" msdata:childkey="Id" msprop:Generator_UserChildTable="Dados" msprop:Generator_ChildPropName="GetDadosRows" msprop:Generator_UserRelationName="Camello_Dados" msprop:Generator_ParentPropName="CamelloRow" msprop:Generator_RelationVarName="relationCamello_Dados" msprop:Generator_UserParentTable="Camello" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
