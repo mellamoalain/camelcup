@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<partida>
+  <camellos>
+    <camello Id="1" Casilla="14" AlturaCasilla="1" Dado="3">
+      <tarjetas>
+        <tarjeta Ganador1="5" Ganador2="1" Perdedor="-1" Fk_jugador="0"></tarjeta>
+        <tarjeta Ganador1="3" Ganador2="1" Perdedor="-1" Fk_jugador="0"></tarjeta>
+        <tarjeta Ganador1="2" Ganador2="1" Perdedor="-1" Fk_jugador="0"></tarjeta>
+      </tarjetas>
+    </camello>  
+    <camello Id="2" Casilla="16" AlturaCasilla="2" Dado="1">
+       <tarjetas>
+        <tarjeta Ganador1="5" Ganador2="1" Perdedor="-1" Fk_jugador="0"></tarjeta>
+        <tarjeta Ganador1="3" Ganador2="1" Perdedor="-1" Fk_jugador="0"></tarjeta>
+        <tarjeta Ganador1="2" Ganador2="1" Perdedor="-1" Fk_jugador="0"></tarjeta>
+      </tarjetas>
+    </camello>  
+    <camello Id="3" Casilla="13" AlturaCasilla="1" Dado="0">
+       <tarjetas>
+        <tarjeta Ganador1="5" Ganador2="1" Perdedor="-1" Fk_jugador="1"></tarjeta>
+        <tarjeta Ganador1="3" Ganador2="1" Perdedor="-1" Fk_jugador="1"></tarjeta>
+        <tarjeta Ganador1="2" Ganador2="1" Perdedor="-1" Fk_jugador="0"></tarjeta>
+      </tarjetas>
+    </camello>  
+    <camello Id="4" Casilla="14" AlturaCasilla="1" Dado="0">
+       <tarjetas>
+        <tarjeta Ganador1="5" Ganador2="1" Perdedor="-1" Fk_jugador="0"></tarjeta>
+        <tarjeta Ganador1="3" Ganador2="1" Perdedor="-1" Fk_jugador="0"></tarjeta>
+        <tarjeta Ganador1="2" Ganador2="1" Perdedor="-1" Fk_jugador="0"></tarjeta>
+      </tarjetas>
+    </camello>  
+    <camello Id="5" Casilla="16" AlturaCasilla="2" Dado="2">
+       <tarjetas>
+        <tarjeta Ganador1="5" Ganador2="1" Perdedor="-1" Fk_jugador="2"></tarjeta>
+        <tarjeta Ganador1="3" Ganador2="1" Perdedor="-1" Fk_jugador="3"></tarjeta>
+        <tarjeta Ganador1="2" Ganador2="1" Perdedor="-1" Fk_jugador="0"></tarjeta>
+      </tarjetas>
+    </camello>  
+  </camellos>  
+  <jugadores>
+    <jugador Id="1" Nombre="Roberto" Perfil="Humano" Moneda="23" TurnoActual="true">
+      <loseta valor="-1" casilla="14">
+      </loseta>
+      <!--Cartas de vencedor y ganador>-->
+      <cartas>
+        <carta Fk_camello="1" posicion="-1"></carta><!-- -1 significa que esta el primero como perdedor-->
+        <carta Fk_camello="2" posicion="2"></carta><!-- 2 significa que esta la segunda carta en la pila de ganadores-->
+        <carta Fk_camello="3" posicion="0"></carta>
+        <carta Fk_camello="4" posicion="0"></carta>
+        <carta Fk_camello="5" posicion="0"></carta>
+      </cartas>
+    </jugador>     
+    <jugador Id="2" Nombre="Roberto" Perfil="Humano" Moneda="20"  TurnoActual="false">
+      <loseta valor="1" casilla="16">
+      </loseta>
+      <cartas>
+        <carta Fk_camello="1" posicion="-2"></carta>
+        <carta Fk_camello="2" posicion="1"></carta>
+        <carta Fk_camello="3" posicion="0"></carta>
+        <carta Fk_camello="4" posicion="1"></carta>
+        <carta Fk_camello="5" posicion="0"></carta>
+      </cartas>
+    </jugador>      
+    <jugador Id="3" Nombre="CP-1" Perfil="Facil" Moneda="26"  TurnoActual="false">
+      <loseta valor="0" casilla="0">
+      </loseta>
+      <cartas>
+        <carta Fk_camello="1" posicion="0"></carta>
+        <carta Fk_camello="2" posicion="3"></carta>
+        <carta Fk_camello="3" posicion="0"></carta>
+        <carta Fk_camello="4" posicion="2"></carta>
+        <carta Fk_camello="5" posicion="0"></carta>
+      </cartas>
+    </jugador>      
+  </jugadores>
+</partida>

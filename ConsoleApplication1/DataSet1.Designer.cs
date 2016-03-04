@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace CamelUp {
+namespace ConsoleApplication1 {
     
     
     /// <summary>
@@ -26,13 +26,23 @@ namespace CamelUp {
         
         private CamelloDataTable tableCamello;
         
-        private DadosDataTable tableDados;
-        
         private LosetaDataTable tableLoseta;
         
         private JugadorDataTable tableJugador;
         
-        private global::System.Data.DataRelation relationCamello_Dados;
+        private CasillaDataTable tableCasilla;
+        
+        private CartaDataTable tableCarta;
+        
+        private global::System.Data.DataRelation relationCasilla_Camello;
+        
+        private global::System.Data.DataRelation relationCasilla_Loseta;
+        
+        private global::System.Data.DataRelation relationJugador_Loseta;
+        
+        private global::System.Data.DataRelation relationCamello_Carta;
+        
+        private global::System.Data.DataRelation relationJugador_Carta;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -65,14 +75,17 @@ namespace CamelUp {
                 if ((ds.Tables["Camello"] != null)) {
                     base.Tables.Add(new CamelloDataTable(ds.Tables["Camello"]));
                 }
-                if ((ds.Tables["Dados"] != null)) {
-                    base.Tables.Add(new DadosDataTable(ds.Tables["Dados"]));
-                }
                 if ((ds.Tables["Loseta"] != null)) {
                     base.Tables.Add(new LosetaDataTable(ds.Tables["Loseta"]));
                 }
                 if ((ds.Tables["Jugador"] != null)) {
                     base.Tables.Add(new JugadorDataTable(ds.Tables["Jugador"]));
+                }
+                if ((ds.Tables["Casilla"] != null)) {
+                    base.Tables.Add(new CasillaDataTable(ds.Tables["Casilla"]));
+                }
+                if ((ds.Tables["Carta"] != null)) {
+                    base.Tables.Add(new CartaDataTable(ds.Tables["Carta"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -106,16 +119,6 @@ namespace CamelUp {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DadosDataTable Dados {
-            get {
-                return this.tableDados;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public LosetaDataTable Loseta {
             get {
                 return this.tableLoseta;
@@ -129,6 +132,26 @@ namespace CamelUp {
         public JugadorDataTable Jugador {
             get {
                 return this.tableJugador;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public CasillaDataTable Casilla {
+            get {
+                return this.tableCasilla;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public CartaDataTable Carta {
+            get {
+                return this.tableCarta;
             }
         }
         
@@ -202,14 +225,17 @@ namespace CamelUp {
                 if ((ds.Tables["Camello"] != null)) {
                     base.Tables.Add(new CamelloDataTable(ds.Tables["Camello"]));
                 }
-                if ((ds.Tables["Dados"] != null)) {
-                    base.Tables.Add(new DadosDataTable(ds.Tables["Dados"]));
-                }
                 if ((ds.Tables["Loseta"] != null)) {
                     base.Tables.Add(new LosetaDataTable(ds.Tables["Loseta"]));
                 }
                 if ((ds.Tables["Jugador"] != null)) {
                     base.Tables.Add(new JugadorDataTable(ds.Tables["Jugador"]));
+                }
+                if ((ds.Tables["Casilla"] != null)) {
+                    base.Tables.Add(new CasillaDataTable(ds.Tables["Casilla"]));
+                }
+                if ((ds.Tables["Carta"] != null)) {
+                    base.Tables.Add(new CartaDataTable(ds.Tables["Carta"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -250,12 +276,6 @@ namespace CamelUp {
                     this.tableCamello.InitVars();
                 }
             }
-            this.tableDados = ((DadosDataTable)(base.Tables["Dados"]));
-            if ((initTable == true)) {
-                if ((this.tableDados != null)) {
-                    this.tableDados.InitVars();
-                }
-            }
             this.tableLoseta = ((LosetaDataTable)(base.Tables["Loseta"]));
             if ((initTable == true)) {
                 if ((this.tableLoseta != null)) {
@@ -268,7 +288,23 @@ namespace CamelUp {
                     this.tableJugador.InitVars();
                 }
             }
-            this.relationCamello_Dados = this.Relations["Camello_Dados"];
+            this.tableCasilla = ((CasillaDataTable)(base.Tables["Casilla"]));
+            if ((initTable == true)) {
+                if ((this.tableCasilla != null)) {
+                    this.tableCasilla.InitVars();
+                }
+            }
+            this.tableCarta = ((CartaDataTable)(base.Tables["Carta"]));
+            if ((initTable == true)) {
+                if ((this.tableCarta != null)) {
+                    this.tableCarta.InitVars();
+                }
+            }
+            this.relationCasilla_Camello = this.Relations["Casilla_Camello"];
+            this.relationCasilla_Loseta = this.Relations["Casilla_Loseta"];
+            this.relationJugador_Loseta = this.Relations["Jugador_Loseta"];
+            this.relationCamello_Carta = this.Relations["Camello_Carta"];
+            this.relationJugador_Carta = this.Relations["Jugador_Carta"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -281,27 +317,39 @@ namespace CamelUp {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableCamello = new CamelloDataTable();
             base.Tables.Add(this.tableCamello);
-            this.tableDados = new DadosDataTable();
-            base.Tables.Add(this.tableDados);
             this.tableLoseta = new LosetaDataTable();
             base.Tables.Add(this.tableLoseta);
             this.tableJugador = new JugadorDataTable();
             base.Tables.Add(this.tableJugador);
-            this.relationCamello_Dados = new global::System.Data.DataRelation("Camello_Dados", new global::System.Data.DataColumn[] {
-                        this.tableCamello.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableDados.IdColumn}, false);
-            this.Relations.Add(this.relationCamello_Dados);
+            this.tableCasilla = new CasillaDataTable();
+            base.Tables.Add(this.tableCasilla);
+            this.tableCarta = new CartaDataTable();
+            base.Tables.Add(this.tableCarta);
+            this.relationCasilla_Camello = new global::System.Data.DataRelation("Casilla_Camello", new global::System.Data.DataColumn[] {
+                        this.tableCasilla.Id_casillaColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCamello.Fk_casillaColumn}, false);
+            this.Relations.Add(this.relationCasilla_Camello);
+            this.relationCasilla_Loseta = new global::System.Data.DataRelation("Casilla_Loseta", new global::System.Data.DataColumn[] {
+                        this.tableCasilla.Id_casillaColumn}, new global::System.Data.DataColumn[] {
+                        this.tableLoseta.Fk_CasillaColumn}, false);
+            this.Relations.Add(this.relationCasilla_Loseta);
+            this.relationJugador_Loseta = new global::System.Data.DataRelation("Jugador_Loseta", new global::System.Data.DataColumn[] {
+                        this.tableJugador.Id_jugadorColumn}, new global::System.Data.DataColumn[] {
+                        this.tableLoseta.Fk_jugadorColumn}, false);
+            this.Relations.Add(this.relationJugador_Loseta);
+            this.relationCamello_Carta = new global::System.Data.DataRelation("Camello_Carta", new global::System.Data.DataColumn[] {
+                        this.tableCamello.Id_camelloColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCarta.Fk_camelloColumn}, false);
+            this.Relations.Add(this.relationCamello_Carta);
+            this.relationJugador_Carta = new global::System.Data.DataRelation("Jugador_Carta", new global::System.Data.DataColumn[] {
+                        this.tableJugador.Id_jugadorColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCarta.Fk_jugadorColumn}, false);
+            this.Relations.Add(this.relationJugador_Carta);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeCamello() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeDados() {
             return false;
         }
         
@@ -314,6 +362,18 @@ namespace CamelUp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeJugador() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeCasilla() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeCarta() {
             return false;
         }
         
@@ -376,13 +436,16 @@ namespace CamelUp {
         public delegate void CamelloRowChangeEventHandler(object sender, CamelloRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void DadosRowChangeEventHandler(object sender, DadosRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void LosetaRowChangeEventHandler(object sender, LosetaRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void JugadorRowChangeEventHandler(object sender, JugadorRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void CasillaRowChangeEventHandler(object sender, CasillaRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void CartaRowChangeEventHandler(object sender, CartaRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -391,13 +454,15 @@ namespace CamelUp {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class CamelloDataTable : global::System.Data.TypedTableBase<CamelloRow> {
             
-            private global::System.Data.DataColumn columnId;
+            private global::System.Data.DataColumn columnId_camello;
             
             private global::System.Data.DataColumn columnColor;
             
-            private global::System.Data.DataColumn columnCasilla;
+            private global::System.Data.DataColumn columnFk_casilla;
             
             private global::System.Data.DataColumn columnAlturaEnCasilla;
+            
+            private global::System.Data.DataColumn columnDado;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -434,9 +499,9 @@ namespace CamelUp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IdColumn {
+            public global::System.Data.DataColumn Id_camelloColumn {
                 get {
-                    return this.columnId;
+                    return this.columnId_camello;
                 }
             }
             
@@ -450,9 +515,9 @@ namespace CamelUp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CasillaColumn {
+            public global::System.Data.DataColumn Fk_casillaColumn {
                 get {
-                    return this.columnCasilla;
+                    return this.columnFk_casilla;
                 }
             }
             
@@ -461,6 +526,14 @@ namespace CamelUp {
             public global::System.Data.DataColumn AlturaEnCasillaColumn {
                 get {
                     return this.columnAlturaEnCasilla;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DadoColumn {
+                get {
+                    return this.columnDado;
                 }
             }
             
@@ -501,13 +574,17 @@ namespace CamelUp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CamelloRow AddCamelloRow(string Id, string Color, string Casilla, string AlturaEnCasilla) {
+            public CamelloRow AddCamelloRow(string Id_camello, string Color, CasillaRow parentCasillaRowByCasilla_Camello, string AlturaEnCasilla, string Dado) {
                 CamelloRow rowCamelloRow = ((CamelloRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id,
+                        Id_camello,
                         Color,
-                        Casilla,
-                        AlturaEnCasilla};
+                        null,
+                        AlturaEnCasilla,
+                        Dado};
+                if ((parentCasillaRowByCasilla_Camello != null)) {
+                    columnValuesArray[2] = parentCasillaRowByCasilla_Camello[0];
+                }
                 rowCamelloRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCamelloRow);
                 return rowCamelloRow;
@@ -515,9 +592,9 @@ namespace CamelUp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CamelloRow FindById(string Id) {
+            public CamelloRow FindById_camello(string Id_camello) {
                 return ((CamelloRow)(this.Rows.Find(new object[] {
-                            Id})));
+                            Id_camello})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -537,27 +614,30 @@ namespace CamelUp {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnId = base.Columns["Id"];
+                this.columnId_camello = base.Columns["Id_camello"];
                 this.columnColor = base.Columns["Color"];
-                this.columnCasilla = base.Columns["Casilla"];
+                this.columnFk_casilla = base.Columns["Fk_casilla"];
                 this.columnAlturaEnCasilla = base.Columns["AlturaEnCasilla"];
+                this.columnDado = base.Columns["Dado"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnId = new global::System.Data.DataColumn("Id", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnId);
+                this.columnId_camello = new global::System.Data.DataColumn("Id_camello", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_camello);
                 this.columnColor = new global::System.Data.DataColumn("Color", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnColor);
-                this.columnCasilla = new global::System.Data.DataColumn("Casilla", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCasilla);
+                this.columnFk_casilla = new global::System.Data.DataColumn("Fk_casilla", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFk_casilla);
                 this.columnAlturaEnCasilla = new global::System.Data.DataColumn("AlturaEnCasilla", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAlturaEnCasilla);
+                this.columnDado = new global::System.Data.DataColumn("Dado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDado);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnId}, true));
-                this.columnId.AllowDBNull = false;
-                this.columnId.Unique = true;
+                                this.columnId_camello}, true));
+                this.columnId_camello.AllowDBNull = false;
+                this.columnId_camello.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -689,288 +769,13 @@ namespace CamelUp {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DadosDataTable : global::System.Data.TypedTableBase<DadosRow> {
-            
-            private global::System.Data.DataColumn columnId;
-            
-            private global::System.Data.DataColumn columnValorActual;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DadosDataTable() {
-                this.TableName = "Dados";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal DadosDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected DadosDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IdColumn {
-                get {
-                    return this.columnId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ValorActualColumn {
-                get {
-                    return this.columnValorActual;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DadosRow this[int index] {
-                get {
-                    return ((DadosRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DadosRowChangeEventHandler DadosRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DadosRowChangeEventHandler DadosRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DadosRowChangeEventHandler DadosRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DadosRowChangeEventHandler DadosRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddDadosRow(DadosRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DadosRow AddDadosRow(CamelloRow parentCamelloRowByCamello_Dados, short ValorActual) {
-                DadosRow rowDadosRow = ((DadosRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        ValorActual};
-                if ((parentCamelloRowByCamello_Dados != null)) {
-                    columnValuesArray[0] = parentCamelloRowByCamello_Dados[0];
-                }
-                rowDadosRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDadosRow);
-                return rowDadosRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DadosRow FindById(string Id) {
-                return ((DadosRow)(this.Rows.Find(new object[] {
-                            Id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                DadosDataTable cln = ((DadosDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new DadosDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnId = base.Columns["Id"];
-                this.columnValorActual = base.Columns["ValorActual"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnId = new global::System.Data.DataColumn("Id", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnId);
-                this.columnValorActual = new global::System.Data.DataColumn("ValorActual", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnValorActual);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnId}, true));
-                this.columnId.AllowDBNull = false;
-                this.columnId.Unique = true;
-                this.columnValorActual.AllowDBNull = false;
-                this.columnValorActual.DefaultValue = ((short)(0));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DadosRow NewDadosRow() {
-                return ((DadosRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DadosRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(DadosRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.DadosRowChanged != null)) {
-                    this.DadosRowChanged(this, new DadosRowChangeEvent(((DadosRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.DadosRowChanging != null)) {
-                    this.DadosRowChanging(this, new DadosRowChangeEvent(((DadosRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.DadosRowDeleted != null)) {
-                    this.DadosRowDeleted(this, new DadosRowChangeEvent(((DadosRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.DadosRowDeleting != null)) {
-                    this.DadosRowDeleting(this, new DadosRowChangeEvent(((DadosRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveDadosRow(DadosRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSet1 ds = new DataSet1();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DadosDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class LosetaDataTable : global::System.Data.TypedTableBase<LosetaRow> {
             
             private global::System.Data.DataColumn columnFk_jugador;
             
-            private global::System.Data.DataColumn columnCasilla;
+            private global::System.Data.DataColumn columnFk_Casilla;
+            
+            private global::System.Data.DataColumn columnMovimiento;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1015,9 +820,17 @@ namespace CamelUp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CasillaColumn {
+            public global::System.Data.DataColumn Fk_CasillaColumn {
                 get {
-                    return this.columnCasilla;
+                    return this.columnFk_Casilla;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MovimientoColumn {
+                get {
+                    return this.columnMovimiento;
                 }
             }
             
@@ -1058,14 +871,29 @@ namespace CamelUp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LosetaRow AddLosetaRow(string Fk_jugador, string Casilla) {
+            public LosetaRow AddLosetaRow(JugadorRow parentJugadorRowByJugador_Loseta, CasillaRow parentCasillaRowByCasilla_Loseta, string Movimiento) {
                 LosetaRow rowLosetaRow = ((LosetaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Fk_jugador,
-                        Casilla};
+                        null,
+                        null,
+                        Movimiento};
+                if ((parentJugadorRowByJugador_Loseta != null)) {
+                    columnValuesArray[0] = parentJugadorRowByJugador_Loseta[0];
+                }
+                if ((parentCasillaRowByCasilla_Loseta != null)) {
+                    columnValuesArray[1] = parentCasillaRowByCasilla_Loseta[0];
+                }
                 rowLosetaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowLosetaRow);
                 return rowLosetaRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public LosetaRow FindByFk_jugadorFk_Casilla(string Fk_jugador, string Fk_Casilla) {
+                return ((LosetaRow)(this.Rows.Find(new object[] {
+                            Fk_jugador,
+                            Fk_Casilla})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1086,7 +914,8 @@ namespace CamelUp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnFk_jugador = base.Columns["Fk_jugador"];
-                this.columnCasilla = base.Columns["Casilla"];
+                this.columnFk_Casilla = base.Columns["Fk_Casilla"];
+                this.columnMovimiento = base.Columns["Movimiento"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1094,8 +923,15 @@ namespace CamelUp {
             private void InitClass() {
                 this.columnFk_jugador = new global::System.Data.DataColumn("Fk_jugador", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFk_jugador);
-                this.columnCasilla = new global::System.Data.DataColumn("Casilla", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCasilla);
+                this.columnFk_Casilla = new global::System.Data.DataColumn("Fk_Casilla", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFk_Casilla);
+                this.columnMovimiento = new global::System.Data.DataColumn("Movimiento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMovimiento);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnFk_jugador,
+                                this.columnFk_Casilla}, true));
+                this.columnFk_jugador.AllowDBNull = false;
+                this.columnFk_Casilla.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1231,6 +1067,8 @@ namespace CamelUp {
             
             private global::System.Data.DataColumn columnId_jugador;
             
+            private global::System.Data.DataColumn columnNombre;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public JugadorDataTable() {
@@ -1274,6 +1112,14 @@ namespace CamelUp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NombreColumn {
+                get {
+                    return this.columnNombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1309,13 +1155,21 @@ namespace CamelUp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public JugadorRow AddJugadorRow(string Id_jugador) {
+            public JugadorRow AddJugadorRow(string Id_jugador, string Nombre) {
                 JugadorRow rowJugadorRow = ((JugadorRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id_jugador};
+                        Id_jugador,
+                        Nombre};
                 rowJugadorRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowJugadorRow);
                 return rowJugadorRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public JugadorRow FindById_jugador(string Id_jugador) {
+                return ((JugadorRow)(this.Rows.Find(new object[] {
+                            Id_jugador})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1336,6 +1190,7 @@ namespace CamelUp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnId_jugador = base.Columns["Id_jugador"];
+                this.columnNombre = base.Columns["Nombre"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1343,6 +1198,12 @@ namespace CamelUp {
             private void InitClass() {
                 this.columnId_jugador = new global::System.Data.DataColumn("Id_jugador", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId_jugador);
+                this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombre);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId_jugador}, true));
+                this.columnId_jugador.AllowDBNull = false;
+                this.columnId_jugador.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1470,6 +1331,600 @@ namespace CamelUp {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class CasillaDataTable : global::System.Data.TypedTableBase<CasillaRow> {
+            
+            private global::System.Data.DataColumn columnId_casilla;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CasillaDataTable() {
+                this.TableName = "Casilla";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal CasillaDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected CasillaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Id_casillaColumn {
+                get {
+                    return this.columnId_casilla;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CasillaRow this[int index] {
+                get {
+                    return ((CasillaRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CasillaRowChangeEventHandler CasillaRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CasillaRowChangeEventHandler CasillaRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CasillaRowChangeEventHandler CasillaRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CasillaRowChangeEventHandler CasillaRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddCasillaRow(CasillaRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CasillaRow AddCasillaRow(string Id_casilla) {
+                CasillaRow rowCasillaRow = ((CasillaRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Id_casilla};
+                rowCasillaRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCasillaRow);
+                return rowCasillaRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CasillaRow FindById_casilla(string Id_casilla) {
+                return ((CasillaRow)(this.Rows.Find(new object[] {
+                            Id_casilla})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                CasillaDataTable cln = ((CasillaDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new CasillaDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnId_casilla = base.Columns["Id_casilla"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnId_casilla = new global::System.Data.DataColumn("Id_casilla", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_casilla);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId_casilla}, true));
+                this.columnId_casilla.AllowDBNull = false;
+                this.columnId_casilla.Unique = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CasillaRow NewCasillaRow() {
+                return ((CasillaRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new CasillaRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(CasillaRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.CasillaRowChanged != null)) {
+                    this.CasillaRowChanged(this, new CasillaRowChangeEvent(((CasillaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.CasillaRowChanging != null)) {
+                    this.CasillaRowChanging(this, new CasillaRowChangeEvent(((CasillaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.CasillaRowDeleted != null)) {
+                    this.CasillaRowDeleted(this, new CasillaRowChangeEvent(((CasillaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.CasillaRowDeleting != null)) {
+                    this.CasillaRowDeleting(this, new CasillaRowChangeEvent(((CasillaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveCasillaRow(CasillaRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSet1 ds = new DataSet1();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "CasillaDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class CartaDataTable : global::System.Data.TypedTableBase<CartaRow> {
+            
+            private global::System.Data.DataColumn columnFk_camello;
+            
+            private global::System.Data.DataColumn columnPrecioPrimero;
+            
+            private global::System.Data.DataColumn columnPrecioSegundo;
+            
+            private global::System.Data.DataColumn columnPrecioPierde;
+            
+            private global::System.Data.DataColumn columnFk_jugador;
+            
+            private global::System.Data.DataColumn columnOrden;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CartaDataTable() {
+                this.TableName = "Carta";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal CartaDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected CartaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fk_camelloColumn {
+                get {
+                    return this.columnFk_camello;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PrecioPrimeroColumn {
+                get {
+                    return this.columnPrecioPrimero;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PrecioSegundoColumn {
+                get {
+                    return this.columnPrecioSegundo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PrecioPierdeColumn {
+                get {
+                    return this.columnPrecioPierde;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fk_jugadorColumn {
+                get {
+                    return this.columnFk_jugador;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OrdenColumn {
+                get {
+                    return this.columnOrden;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CartaRow this[int index] {
+                get {
+                    return ((CartaRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CartaRowChangeEventHandler CartaRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CartaRowChangeEventHandler CartaRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CartaRowChangeEventHandler CartaRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CartaRowChangeEventHandler CartaRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddCartaRow(CartaRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CartaRow AddCartaRow(CamelloRow parentCamelloRowByCamello_Carta, string PrecioPrimero, string PrecioSegundo, string PrecioPierde, JugadorRow parentJugadorRowByJugador_Carta, string Orden) {
+                CartaRow rowCartaRow = ((CartaRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        PrecioPrimero,
+                        PrecioSegundo,
+                        PrecioPierde,
+                        null,
+                        Orden};
+                if ((parentCamelloRowByCamello_Carta != null)) {
+                    columnValuesArray[0] = parentCamelloRowByCamello_Carta[0];
+                }
+                if ((parentJugadorRowByJugador_Carta != null)) {
+                    columnValuesArray[4] = parentJugadorRowByJugador_Carta[0];
+                }
+                rowCartaRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCartaRow);
+                return rowCartaRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CartaRow FindByFk_camelloOrden(string Fk_camello, string Orden) {
+                return ((CartaRow)(this.Rows.Find(new object[] {
+                            Fk_camello,
+                            Orden})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                CartaDataTable cln = ((CartaDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new CartaDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnFk_camello = base.Columns["Fk_camello"];
+                this.columnPrecioPrimero = base.Columns["PrecioPrimero"];
+                this.columnPrecioSegundo = base.Columns["PrecioSegundo"];
+                this.columnPrecioPierde = base.Columns["PrecioPierde"];
+                this.columnFk_jugador = base.Columns["Fk_jugador"];
+                this.columnOrden = base.Columns["Orden"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnFk_camello = new global::System.Data.DataColumn("Fk_camello", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFk_camello);
+                this.columnPrecioPrimero = new global::System.Data.DataColumn("PrecioPrimero", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrecioPrimero);
+                this.columnPrecioSegundo = new global::System.Data.DataColumn("PrecioSegundo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrecioSegundo);
+                this.columnPrecioPierde = new global::System.Data.DataColumn("PrecioPierde", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrecioPierde);
+                this.columnFk_jugador = new global::System.Data.DataColumn("Fk_jugador", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFk_jugador);
+                this.columnOrden = new global::System.Data.DataColumn("Orden", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrden);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnFk_camello,
+                                this.columnOrden}, true));
+                this.columnFk_camello.AllowDBNull = false;
+                this.columnOrden.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CartaRow NewCartaRow() {
+                return ((CartaRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new CartaRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(CartaRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.CartaRowChanged != null)) {
+                    this.CartaRowChanged(this, new CartaRowChangeEvent(((CartaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.CartaRowChanging != null)) {
+                    this.CartaRowChanging(this, new CartaRowChangeEvent(((CartaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.CartaRowDeleted != null)) {
+                    this.CartaRowDeleted(this, new CartaRowChangeEvent(((CartaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.CartaRowDeleting != null)) {
+                    this.CartaRowDeleting(this, new CartaRowChangeEvent(((CartaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveCartaRow(CartaRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSet1 ds = new DataSet1();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "CartaDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class CamelloRow : global::System.Data.DataRow {
@@ -1485,12 +1940,12 @@ namespace CamelUp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Id {
+            public string Id_camello {
                 get {
-                    return ((string)(this[this.tableCamello.IdColumn]));
+                    return ((string)(this[this.tableCamello.Id_camelloColumn]));
                 }
                 set {
-                    this[this.tableCamello.IdColumn] = value;
+                    this[this.tableCamello.Id_camelloColumn] = value;
                 }
             }
             
@@ -1512,17 +1967,17 @@ namespace CamelUp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Casilla {
+            public string Fk_casilla {
                 get {
                     try {
-                        return ((string)(this[this.tableCamello.CasillaColumn]));
+                        return ((string)(this[this.tableCamello.Fk_casillaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Casilla\' in table \'Camello\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Fk_casilla\' in table \'Camello\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableCamello.CasillaColumn] = value;
+                    this[this.tableCamello.Fk_casillaColumn] = value;
                 }
             }
             
@@ -1544,6 +1999,33 @@ namespace CamelUp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Dado {
+                get {
+                    try {
+                        return ((string)(this[this.tableCamello.DadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Dado\' in table \'Camello\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCamello.DadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CasillaRow CasillaRow {
+                get {
+                    return ((CasillaRow)(this.GetParentRow(this.Table.ParentRelations["Casilla_Camello"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Casilla_Camello"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsColorNull() {
                 return this.IsNull(this.tableCamello.ColorColumn);
             }
@@ -1556,14 +2038,14 @@ namespace CamelUp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCasillaNull() {
-                return this.IsNull(this.tableCamello.CasillaColumn);
+            public bool IsFk_casillaNull() {
+                return this.IsNull(this.tableCamello.Fk_casillaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCasillaNull() {
-                this[this.tableCamello.CasillaColumn] = global::System.Convert.DBNull;
+            public void SetFk_casillaNull() {
+                this[this.tableCamello.Fk_casillaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1580,60 +2062,24 @@ namespace CamelUp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DadosRow[] GetDadosRows() {
-                if ((this.Table.ChildRelations["Camello_Dados"] == null)) {
-                    return new DadosRow[0];
+            public bool IsDadoNull() {
+                return this.IsNull(this.tableCamello.DadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDadoNull() {
+                this[this.tableCamello.DadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CartaRow[] GetCartaRows() {
+                if ((this.Table.ChildRelations["Camello_Carta"] == null)) {
+                    return new CartaRow[0];
                 }
                 else {
-                    return ((DadosRow[])(base.GetChildRows(this.Table.ChildRelations["Camello_Dados"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class DadosRow : global::System.Data.DataRow {
-            
-            private DadosDataTable tableDados;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal DadosRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableDados = ((DadosDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Id {
-                get {
-                    return ((string)(this[this.tableDados.IdColumn]));
-                }
-                set {
-                    this[this.tableDados.IdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public short ValorActual {
-                get {
-                    return ((short)(this[this.tableDados.ValorActualColumn]));
-                }
-                set {
-                    this[this.tableDados.ValorActualColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CamelloRow CamelloRow {
-                get {
-                    return ((CamelloRow)(this.GetParentRow(this.Table.ParentRelations["Camello_Dados"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Camello_Dados"]);
+                    return ((CartaRow[])(base.GetChildRows(this.Table.ChildRelations["Camello_Carta"])));
                 }
             }
         }
@@ -1656,12 +2102,7 @@ namespace CamelUp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Fk_jugador {
                 get {
-                    try {
-                        return ((string)(this[this.tableLoseta.Fk_jugadorColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Fk_jugador\' in table \'Loseta\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableLoseta.Fk_jugadorColumn]));
                 }
                 set {
                     this[this.tableLoseta.Fk_jugadorColumn] = value;
@@ -1670,42 +2111,63 @@ namespace CamelUp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Casilla {
+            public string Fk_Casilla {
+                get {
+                    return ((string)(this[this.tableLoseta.Fk_CasillaColumn]));
+                }
+                set {
+                    this[this.tableLoseta.Fk_CasillaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Movimiento {
                 get {
                     try {
-                        return ((string)(this[this.tableLoseta.CasillaColumn]));
+                        return ((string)(this[this.tableLoseta.MovimientoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Casilla\' in table \'Loseta\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Movimiento\' in table \'Loseta\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableLoseta.CasillaColumn] = value;
+                    this[this.tableLoseta.MovimientoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFk_jugadorNull() {
-                return this.IsNull(this.tableLoseta.Fk_jugadorColumn);
+            public CasillaRow CasillaRow {
+                get {
+                    return ((CasillaRow)(this.GetParentRow(this.Table.ParentRelations["Casilla_Loseta"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Casilla_Loseta"]);
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFk_jugadorNull() {
-                this[this.tableLoseta.Fk_jugadorColumn] = global::System.Convert.DBNull;
+            public JugadorRow JugadorRow {
+                get {
+                    return ((JugadorRow)(this.GetParentRow(this.Table.ParentRelations["Jugador_Loseta"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Jugador_Loseta"]);
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCasillaNull() {
-                return this.IsNull(this.tableLoseta.CasillaColumn);
+            public bool IsMovimientoNull() {
+                return this.IsNull(this.tableLoseta.MovimientoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCasillaNull() {
-                this[this.tableLoseta.CasillaColumn] = global::System.Convert.DBNull;
+            public void SetMovimientoNull() {
+                this[this.tableLoseta.MovimientoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1727,12 +2189,7 @@ namespace CamelUp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Id_jugador {
                 get {
-                    try {
-                        return ((string)(this[this.tableJugador.Id_jugadorColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Id_jugador\' in table \'Jugador\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableJugador.Id_jugadorColumn]));
                 }
                 set {
                     this[this.tableJugador.Id_jugadorColumn] = value;
@@ -1741,14 +2198,271 @@ namespace CamelUp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsId_jugadorNull() {
-                return this.IsNull(this.tableJugador.Id_jugadorColumn);
+            public string Nombre {
+                get {
+                    try {
+                        return ((string)(this[this.tableJugador.NombreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Nombre\' in table \'Jugador\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableJugador.NombreColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetId_jugadorNull() {
-                this[this.tableJugador.Id_jugadorColumn] = global::System.Convert.DBNull;
+            public bool IsNombreNull() {
+                return this.IsNull(this.tableJugador.NombreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNombreNull() {
+                this[this.tableJugador.NombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public LosetaRow[] GetLosetaRows() {
+                if ((this.Table.ChildRelations["Jugador_Loseta"] == null)) {
+                    return new LosetaRow[0];
+                }
+                else {
+                    return ((LosetaRow[])(base.GetChildRows(this.Table.ChildRelations["Jugador_Loseta"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CartaRow[] GetCartaRows() {
+                if ((this.Table.ChildRelations["Jugador_Carta"] == null)) {
+                    return new CartaRow[0];
+                }
+                else {
+                    return ((CartaRow[])(base.GetChildRows(this.Table.ChildRelations["Jugador_Carta"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class CasillaRow : global::System.Data.DataRow {
+            
+            private CasillaDataTable tableCasilla;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal CasillaRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableCasilla = ((CasillaDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Id_casilla {
+                get {
+                    return ((string)(this[this.tableCasilla.Id_casillaColumn]));
+                }
+                set {
+                    this[this.tableCasilla.Id_casillaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CamelloRow[] GetCamelloRows() {
+                if ((this.Table.ChildRelations["Casilla_Camello"] == null)) {
+                    return new CamelloRow[0];
+                }
+                else {
+                    return ((CamelloRow[])(base.GetChildRows(this.Table.ChildRelations["Casilla_Camello"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public LosetaRow[] GetLosetaRows() {
+                if ((this.Table.ChildRelations["Casilla_Loseta"] == null)) {
+                    return new LosetaRow[0];
+                }
+                else {
+                    return ((LosetaRow[])(base.GetChildRows(this.Table.ChildRelations["Casilla_Loseta"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class CartaRow : global::System.Data.DataRow {
+            
+            private CartaDataTable tableCarta;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal CartaRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableCarta = ((CartaDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Fk_camello {
+                get {
+                    return ((string)(this[this.tableCarta.Fk_camelloColumn]));
+                }
+                set {
+                    this[this.tableCarta.Fk_camelloColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PrecioPrimero {
+                get {
+                    try {
+                        return ((string)(this[this.tableCarta.PrecioPrimeroColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PrecioPrimero\' in table \'Carta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCarta.PrecioPrimeroColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PrecioSegundo {
+                get {
+                    try {
+                        return ((string)(this[this.tableCarta.PrecioSegundoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PrecioSegundo\' in table \'Carta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCarta.PrecioSegundoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PrecioPierde {
+                get {
+                    try {
+                        return ((string)(this[this.tableCarta.PrecioPierdeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PrecioPierde\' in table \'Carta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCarta.PrecioPierdeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Fk_jugador {
+                get {
+                    try {
+                        return ((string)(this[this.tableCarta.Fk_jugadorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Fk_jugador\' in table \'Carta\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCarta.Fk_jugadorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Orden {
+                get {
+                    return ((string)(this[this.tableCarta.OrdenColumn]));
+                }
+                set {
+                    this[this.tableCarta.OrdenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CamelloRow CamelloRow {
+                get {
+                    return ((CamelloRow)(this.GetParentRow(this.Table.ParentRelations["Camello_Carta"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Camello_Carta"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public JugadorRow JugadorRow {
+                get {
+                    return ((JugadorRow)(this.GetParentRow(this.Table.ParentRelations["Jugador_Carta"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Jugador_Carta"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPrecioPrimeroNull() {
+                return this.IsNull(this.tableCarta.PrecioPrimeroColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPrecioPrimeroNull() {
+                this[this.tableCarta.PrecioPrimeroColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPrecioSegundoNull() {
+                return this.IsNull(this.tableCarta.PrecioSegundoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPrecioSegundoNull() {
+                this[this.tableCarta.PrecioSegundoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPrecioPierdeNull() {
+                return this.IsNull(this.tableCarta.PrecioPierdeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPrecioPierdeNull() {
+                this[this.tableCarta.PrecioPierdeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFk_jugadorNull() {
+                return this.IsNull(this.tableCarta.Fk_jugadorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFk_jugadorNull() {
+                this[this.tableCarta.Fk_jugadorColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1772,40 +2486,6 @@ namespace CamelUp {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CamelloRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class DadosRowChangeEvent : global::System.EventArgs {
-            
-            private DadosRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DadosRowChangeEvent(DadosRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DadosRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1874,6 +2554,74 @@ namespace CamelUp {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public JugadorRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class CasillaRowChangeEvent : global::System.EventArgs {
+            
+            private CasillaRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CasillaRowChangeEvent(CasillaRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CasillaRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class CartaRowChangeEvent : global::System.EventArgs {
+            
+            private CartaRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CartaRowChangeEvent(CartaRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CartaRow Row {
                 get {
                     return this.eventRow;
                 }

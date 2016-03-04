@@ -55,15 +55,6 @@
   <ItemGroup>
     <Compile Include="Controller\Controlador.cs" />
     <Compile Include="Controller\Intefaz.cs" />
-    <Compile Include="DataSet1.cs">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Model1.cs" />
     <Compile Include="Modelo\Apuesta.cs" />
     <Compile Include="Modelo\Camello.cs" />
@@ -140,17 +131,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

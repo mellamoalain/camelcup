@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="" Member="Camellos">
+    <Type Name="Camello">
+      <Column Member="Id_camello" Type="System.String" CanBeNull="false" />
+      <Column Member="Color" Type="System.String" CanBeNull="false" />
+      <Column Member="Fk_casilla" Type="System.String" CanBeNull="false" />
+      <Column Member="AlturaCasilla" Type="System.String" CanBeNull="false" />
+      <Column Member="Dado" Type="System.String" CanBeNull="false" />
+      <Association Name="Casilla_Camello" Member="Casilla" ThisKey="Fk_casilla" OtherKey="Id_casilla" Type="Casilla" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Casillas">
+    <Type Name="Casilla">
+      <Column Member="Id_casilla" Type="System.String" CanBeNull="false" />
+      <Association Name="Casilla_Camello" Member="Camellos" ThisKey="Id_casilla" OtherKey="Fk_casilla" Type="Camello" />
+    </Type>
+  </Table>
+</Database>

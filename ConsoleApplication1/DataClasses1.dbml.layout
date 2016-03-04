@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses1">
+  <DataContextMoniker Name="/DataClasses1DataContext" />
+  <nestedChildShapes>
+    <classShape Id="8aac790e-a248-418b-be59-af3725428397" absoluteBounds="3.375, 1.5, 2, 0.7712304642796517">
+      <DataClassMoniker Name="/DataClasses1DataContext/Camello" />
+      <nestedChildShapes>
+        <elementListCompartment Id="132ceacf-af27-4f00-aeb8-13a4a75c43c4" isExpanded="false" absoluteBounds="3.39, 1.96, 1.9700000000000002, 0.21123046427965164" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1eb510b3-0810-4e60-94b7-405605ea9668" absoluteBounds="0.75, 1.25, 2, 0.7712304642796517">
+      <DataClassMoniker Name="/DataClasses1DataContext/Casilla" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c9df8317-2c53-426b-a9cd-6cf0c598d86d" isExpanded="false" absoluteBounds="0.765, 1.71, 1.9700000000000002, 0.21123046427965164" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.76061523213983); (3.375 : 1.76061523213983)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClasses1DataContext/Casilla/Casilla_Camello" />
+      <nodes>
+        <classShapeMoniker Id="1eb510b3-0810-4e60-94b7-405605ea9668" />
+        <classShapeMoniker Id="8aac790e-a248-418b-be59-af3725428397" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
